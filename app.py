@@ -19,6 +19,12 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/ps4')
+def ps4():
+    return render_template('ps4.html',
+                           playstation4=mongo.db.playstation4.find())
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
