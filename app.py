@@ -25,6 +25,24 @@ def ps4():
                            playstation4=mongo.db.playstation4.find())
 
 
+@app.route('/xbox')
+def xbox():
+    return render_template('xbox.html',
+                           xbox=mongo.db.xbox.find())
+
+
+@app.route('/nintendo')
+def nintendo():
+    return render_template('nintendo.html',
+                           nintendo=mongo.db.nintendo.find())
+
+
+@app.route('/pc')
+def pc():
+    return render_template('pc.html',
+                           pc=mongo.db.pc.find())
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
