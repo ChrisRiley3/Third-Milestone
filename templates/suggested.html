@@ -1,16 +1,11 @@
 {% extends 'base.html'%} {% block content %}
-  <ul class="collapsible">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-  </ul>
+<h3 class="suggested-title">Suggested Games</h3>
+<ul class="collapsible">
+  {% for game in suggested %}
+  <li>
+    <div class="collapsible-header"><i class="material-icons">expand_more</i><h5>Game Title: {{ game.game_title }} - {{ game.first_name }} {{ game.last_name}}</h5></div>
+    <div class="collapsible-body"><h5>Game Description:</h5><span>{{ game.game_description}}</span></div>
+  </li>
+  {% endfor %}
+</ul>
 {% endblock %}
