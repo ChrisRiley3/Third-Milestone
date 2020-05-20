@@ -227,11 +227,11 @@ p {
 .suggested-title{
     color: rgba(255, 255, 255, 0.7);
 }
-.collapsible-body,
-.collapsible-header {
+.card-body,
+.card-header {
     background-color: rgba(41, 41, 41, 0.9)!important;
     color: rgba(255, 255, 255, 0.7);
 }
-.collapsible-body {
-    word-wrap: break-word;
+.card {
+    border: 1px solid rgba(255, 255, 255, 0.7);
 }
