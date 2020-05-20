@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 {% extends 'base.html'%} {% block content %}
-<!-- Materilaize -->
-<link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons"
-  rel="stylesheet"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
-/>
-<h3 class="suggested-title">Suggested Games</h3>
-<ul class="collapsible">
-  {% for game in suggested %}
-  <li>
-    <div class="collapsible-header">
-      <i class="material-icons">expand_more</i>
-      <h5>
-        Game Title: {{ game.game_title }} - {{ game.first_name }} {{
-        game.last_name}}
-      </h5>
+<h1 class="suggested-title">Suggested Games</h1>
+{% for game in suggested %}
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h3
+        class="mb-0"
+        data-toggle="collapse"
+        data-target="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        <i class="fas fa-caret-square-down"></i>
+        Game Title: {{ game.game_title}} - {{ game.first_name }} {{
+        game.last_name }}
+      </h3>
     </div>
-    <div class="collapsible-body">
-      <h5>Game Description:</h5>
-      <span>{{ game.game_description}}</span>
+
+    <div
+      id="collapseOne"
+      class="collapse"
+      aria-labelledby="headingOne"
+      data-parent="#accordionExample"
+    >
+      <div class="card-body">
+        <h5>Game Description:</h5>
+        {{ game.game_description }}
+      </div>
     </div>
-  </li>
-  {% endfor %}
-</ul>
-{% endblock %}
+  </div>
+</div>
+{% endfor %} {% endblock %}
