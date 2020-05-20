@@ -43,6 +43,12 @@ def pc():
                            pc=mongo.db.pc.find())
 
 
+@app.route('/suggested')
+def suggested():
+    return render_template('suggested.html',
+                           suggested=mongo.db.suggested.find())
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
