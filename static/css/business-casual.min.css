@@ -224,3 +224,14 @@ p {
 .font-weight-light {
   font-weight: 100 !important;
 }
+.suggested-title{
+    color: rgba(255, 255, 255, 0.7);
+}
+.collapsible-body,
+.collapsible-header {
+    background-color: rgba(41, 41, 41, 0.9)!important;
+    color: rgba(255, 255, 255, 0.7);
+}
+.collapsible-body {
+    word-wrap: break-word;
+}
