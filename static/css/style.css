@@ -1,0 +1,26 @@
+/* Styling for the suggested games card */
+.card-body,
+.card-header {
+  background-color: rgb(212, 212, 212) !important;
+  color: rgba(41, 41, 41, 0.9);
+}
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+/* Styling for the form */
+.form-field {
+  color: rgb(212, 212, 212);
+}
+.form-control {
+  background-color: rgb(212, 212, 212) !important;
+  color: rgba(41, 41, 41, 0.9);
+}
+/*Styling for the buttons*/
+.my-btn:hover {
+  color: rgb(212, 212, 212);
+  background-color: rgba(41, 41, 41, 0.9) !important;
+}
+.btn-primary:hover {
+  color: rgb(212, 212, 212);
+  background-color: rgba(54, 54, 54, 0.9) !important;
+}
