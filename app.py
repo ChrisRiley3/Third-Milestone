@@ -52,7 +52,14 @@ def suggested():
 @app.route('/add_game')
 def add_game():
     return render_template('add_game.html',
-                            genre=mongo.db.genre.find())
+                           genre=mongo.db.genre.find())
+
+
+@app.route('/insert_game', methods=['POST'])
+def insert_game():
+    suggested = mongo.db.suggested
+    suggested.insert_one(request.form.to_dict())
+    return redirect(url_for('suggested'))
 
 
 if __name__ == '__main__':
