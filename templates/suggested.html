@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% extends 'base.html'%} {% block content %}
-<h1 class="suggested-title">Suggested Games</h1>
+<h1 class="page-title">Suggested Games</h1>
 {% for game in suggested %}
 <div class="accordion" id="accordionExample">
   <div class="card">
@@ -13,8 +13,7 @@
         aria-controls="collapseOne"
       >
         <i class="fas fa-caret-square-down"></i>
-        Game Title: {{ game.game_title}} - {{ game.first_name }} {{
-        game.last_name }}
+        Game Title: {{ game.game_title}} - Genre: {{ game.game_genre }}
       </h4>
     </div>
 
@@ -27,6 +26,9 @@
       <div class="card-body">
         <h5>Game Description:</h5>
         {{ game.game_description }}
+      </div>
+      <div class="card-body">
+        User's name: {{ game.first_name }} {{ game.last_name }}
       </div>
     </div>
   </div>
