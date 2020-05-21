@@ -9,7 +9,11 @@
         yourself
       </h5>
       <div class="intro-button mx-auto">
-        <a class="btn btn-primary btn-md col-md-2" href="{{ url_for('add_game') }}"><h5>Add Game</h5></a>
+        <a
+          class="btn btn-primary btn-md col-md-2"
+          href="{{ url_for('add_game') }}"
+          ><h5>Add Game</h5></a
+        >
       </div>
     </div>
   </div>
@@ -29,7 +33,11 @@
         Game Title: {{ game.game_title}} - Genre: {{ game.game_genre }}
       </h4>
       <div class="intro-button mx-auto">
-        <a class="btn btn-dark btn-md col-md-1" href="#"><h6>Edit</h6></a>
+        <a
+          class="btn btn-dark btn-md col-md-1"
+          href="{{ url_for('edit_game', game_id=game._id) }}"
+          ><h6>Edit</h6></a
+        >
         <a class="btn btn-primary btn-md col-md-1" href="#"><h6>Del</h6></a>
       </div>
     </div>
