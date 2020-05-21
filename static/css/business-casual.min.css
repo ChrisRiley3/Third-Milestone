@@ -224,25 +224,29 @@ p {
 .font-weight-light {
   font-weight: 100 !important;
 }
-.page-title{
-    color: rgb(212, 212, 212);
+.page-title {
+  color: rgb(212, 212, 212);
 }
 .card-body,
 .card-header {
-    background-color: rgba(41, 41, 41, 0.9)!important;
-    color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(212, 212, 212) !important;
+  color: rgba(41, 41, 41, 0.9);
 }
 .card {
-    border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 .form-field {
-    color: rgb(212, 212, 212);
+  color: rgb(212, 212, 212);
 }
 .form-control {
-    background-color: rgb(212, 212, 212)!important;
-    color: rgba(41, 41, 41, 0.9);
+  background-color: rgb(212, 212, 212) !important;
+  color: rgba(41, 41, 41, 0.9);
 }
 .my-btn:hover {
-    color: rgb(212, 212, 212);
-    background-color: rgba(41, 41, 41, 0.9)!important;
+  color: rgb(212, 212, 212);
+  background-color: rgba(41, 41, 41, 0.9) !important;
+}
+.btn-primary:hover {
+  color: rgb(212, 212, 212);
+  background-color: rgba(54, 54, 54, 0.9) !important;
 }
