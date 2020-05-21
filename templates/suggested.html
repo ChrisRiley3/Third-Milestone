@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+<!-- Extends the content on base.html -->
 {% extends 'base.html'%} {% block content %}
+<!-- Page Title -->
 <h1 class="page-title">Suggested Games</h1>
+<!-- Paragraph explaining the page -->
 <section class="page-section clearfix">
   <div class="container">
     <div class="text-center bg-faded p-4 rounded">
@@ -12,12 +15,13 @@
         <a
           class="btn btn-primary btn-md col-md-2"
           href="{{ url_for('add_game') }}"
-          ><h5>Add Game</h5></a
+          ><h5><i class="fas fa-plus"></i> Add Game</h5></a
         >
       </div>
     </div>
   </div>
 </section>
+<!-- for loop that will loop through my mongodb and siplay the suggested data -->
 {% for game in suggested %}
 <div class="accordion" id="accordionExample">
   <div class="card">
@@ -33,15 +37,20 @@
         Game Title: {{ game.game_title}} - Genre: {{ game.game_genre }}
       </h4>
       <div class="intro-button mx-auto">
+        <!-- Button to Edit a task -->
         <a
           class="btn btn-dark btn-md col-md-1"
           href="{{ url_for('edit_game', game_id=game._id) }}"
           ><h6>Edit</h6></a
         >
-        <a class="btn btn-primary btn-md col-md-1" href="#"><h6>Del</h6></a>
+        <!-- Button to Delete a task -->
+        <a
+          class="btn btn-primary btn-md col-md-1"
+          href="{{ url_for('delete_game', game_id=game._id) }}"
+          ><h6>Del</h6></a
+        >
       </div>
     </div>
-
     <div
       id="collapseOne"
       class="collapse"

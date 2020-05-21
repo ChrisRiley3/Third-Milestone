@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<!-- Extends the content on base.html -->
 {% extends 'base.html'%} {% block content %}
+<!-- Page Title -->
 <h1 class="page-title">Edit Game</h1>
 <form
-  action="{{ url_for('insert_game') }}"
+  action="{{ url_for('update_game', game_id=game._id) }}"
   method="POST"
   class="needs-validation"
   novalidate
@@ -11,9 +13,12 @@
     <label class="form-field" for="exampleFormControlSelect1"
       ><h4><i class="fas fa-list-ul"></i> Genre</h4></label
     >
+    <!-- This bit of code will loop through the different genres in my database and display them on the page, the if statemet will display what was written in the previous fields before editing-->
     <select class="form-control" id="exampleFormControlSelect1">
       {% for gen in genre %} {% if gen.game_genre == game.game_genre %}
-      <option value="{{ gen.game_genre }}" selected>{{ gen.game_genre }}</option>
+      <option value="{{ gen.game_genre }}" selected
+        >{{ gen.game_genre }}</option
+      >
       {% else %}
       <option value="{{ gen.game_genre }}">{{ gen.game_genre }}</option>
       {% endif %} {% endfor %}
@@ -75,7 +80,9 @@
       name="game_description"
       rows="3"
       placeholder="Enter your game description"
-    >{{ game.game_description }}"</textarea>
+    >
+{{ game.game_description }}"</textarea
+    >
   </div>
   <button
     class="btn btn-primary col-md-2 form-field form-control my-btn"

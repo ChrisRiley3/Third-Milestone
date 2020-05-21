@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<!-- Extends the content on base.html -->
 {% extends 'base.html' %} {% block content %}
 
 <h2>{{ page_title }}</h2>
-
+<!-- for loop that will loop through my mongodb and display the data -->
 {% for game in playstation4 %} {% if loop.index % 2 != 0 %}
 
 <section class="page-section">

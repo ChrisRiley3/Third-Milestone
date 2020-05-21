@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<!-- Extends the content on base.html -->
 {% extends 'base.html' %} {% block content %}
 
 <h2>{{ page_title }}</h2>
-
+<!-- for loop that will loop through my mongodb and display the data -->
 {% for game in nintendo %} {% if loop.index % 2 != 0 %}
 
 <section class="page-section">
@@ -11,7 +12,9 @@
       <div class="product-item-title d-flex">
         <div class="bg-faded p-5 d-flex ml-auto rounded">
           <h2 class="section-heading mb-0">
-            <span class="section-heading-upper text-capitalize">Release Date: {{ game.release_date }}</span>
+            <span class="section-heading-upper text-capitalize"
+              >Release Date: {{ game.release_date }}</span
+            >
             <span class="section-heading-lower">{{ game.game_title }}</span>
           </h2>
         </div>
@@ -37,7 +40,9 @@
         <div class="product-item-title d-flex">
           <div class="bg-faded p-5 d-flex mr-auto rounded">
             <h2 class="section-heading mb-0">
-              <span class="section-heading-upper text-capitalize">Release Date: {{ game.release_date }}</span>
+              <span class="section-heading-upper text-capitalize"
+                >Release Date: {{ game.release_date }}</span
+              >
               <span class="section-heading-lower">{{ game.game_title }}</span>
             </h2>
           </div>
@@ -58,7 +63,5 @@
     </div>
   </section>
 
-  {% endif %}
-
-  {% endfor %} {% endblock %}
+  {% endif %} {% endfor %} {% endblock %}
 </section>
