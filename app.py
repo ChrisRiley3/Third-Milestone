@@ -49,6 +49,12 @@ def suggested():
                            suggested=mongo.db.suggested.find())
 
 
+@app.route('/add_game')
+def add_game():
+    return render_template('add_game.html',
+                            genre=mongo.db.genre.find())
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
