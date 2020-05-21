@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 {% extends 'base.html'%} {% block content %}
 <h1 class="page-title">Suggested Games</h1>
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="text-center bg-faded p-4 rounded">
+      <h5>
+        Here you can find all our users reccomended games why not add one
+        yourself
+      </h5>
+      <div class="intro-button mx-auto">
+        <a class="btn btn-primary btn-md col-md-2" href="{{ url_for('add_game') }}"><h5>Add Game</h5></a>
+      </div>
+    </div>
+  </div>
+</section>
 {% for game in suggested %}
 <div class="accordion" id="accordionExample">
   <div class="card">
@@ -15,6 +28,10 @@
         <i class="fas fa-caret-square-down"></i>
         Game Title: {{ game.game_title}} - Genre: {{ game.game_genre }}
       </h4>
+      <div class="intro-button mx-auto">
+        <a class="btn btn-dark btn-md col-md-1" href="#"><h6>Edit</h6></a>
+        <a class="btn btn-primary btn-md col-md-1" href="#"><h6>Del</h6></a>
+      </div>
     </div>
 
     <div

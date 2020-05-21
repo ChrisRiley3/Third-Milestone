@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 {% extends 'base.html'%} {% block content %}
 <h1 class="page-title">Add Game</h1>
-<form action="" method="POST" class="needs-validation" novalidate>
+<form action="{{ url_for('insert_game') }}" method="POST" class="needs-validation" novalidate>
   <div class="form-group">
     <label class="form-field" for="exampleFormControlSelect1"
       ><h4><i class="fas fa-list-ul"></i> Genre</h4></label
     >
     <select class="form-control" id="exampleFormControlSelect1">
       {% for gen in genre %}
-      <option>{{ gen.game_genre }}</option>
+      <option value="{{ gen.game_genre }}">{{ gen.game_genre }}</option>
       {% endfor %}
     </select>
   </div>
@@ -23,7 +23,6 @@
         id="first_name"
         name="first_name"
         placeholder="First name"
-        value="Enter your first name"
         required
       />
     </div>
@@ -37,7 +36,6 @@
         id="last_name"
         name="last_name"
         placeholder="Last name"
-        value="Enter your last name"
         required
       />
     </div>
@@ -69,8 +67,8 @@
       placeholder="Enter your game description"
     ></textarea>
   </div>
-  <button class="btn btn-primary col-md-2 form-field form-control my-btn" type="submit">
-    <strong><i class="far fa-share-square"></i> Add Game</strong>
+  <button class="btn btn-primary col-md-2 form-field form-control my-btn" type="submit" name="action">
+    <strong>Add Game <i class="far fa-share-square"></i></strong>
   </button>
 </form>
 {% endblock %}
