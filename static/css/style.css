@@ -1,3 +1,11 @@
+/* Styling for the body */
+body {
+  font-family: Lora;
+  background-image: url(../img/bgimg.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
 /* Styling for the suggested games card */
 .card-body,
 .card-header {
@@ -24,3 +32,12 @@
   color: rgb(212, 212, 212);
   background-color: rgba(54, 54, 54, 0.9) !important;
 }
+/* Media Queries */
+@media (min-width: 474px) {
+  .section-heading .section-heading-lower {
+    display: block;
+    font-size: 3rem;
+    font-weight: 100;
+  }
+}
+
