@@ -129,11 +129,14 @@ simply just spelled genre. So i altered my code to {{ game.genre }} and it start
 This next bug took me a little while to figure out. I am using a bootstrap template to display my suggested games. Because I am iterating through my mongo database with a for loop I only need to 
 take part of the collapse template not the full thing. But because I am only using one part it also means the ID's will be the same for all of the suggested games so once one suggested game was 
 clicked and the information about the game opened up it meant that all the games that are on the page will also open up to display their information to. So it seems like the solution is simple 
-give the ID of the collapsible template something that games dont have in common. So I changed the ID to {{ game._id }}, every new game added to the database automatically is given its own unique 
+give the ID of the collapsible template something that the games dont have in common. So I changed the ID to {{ game._id }}, every new game added to the database automatically is given its own unique 
 ID, so technically this should work. However it did not by doing this it broke the whole thing completly so i had to go back to step one and find out what was actually causing the collapse to work. 
 I found out that in the card-header of the template the data-target and aria-controls were causing the collapse to work but also in the div holding the card-body the ID was causing this to work. 
-So I tried changing them all to the games unique ID once more and it still did not work. I needed to try something else, finally I treid using the games description as something that was unique, 
-finally it started to work. Now only the game that has been clicked will open up displaying more inforamtion about the game.
+So I tried changing them all to the games unique ID once more and it still did not work. I needed to try something else, next I treid using the games description as something that was unique, this 
+worked but only if the game title and game description didnt have any spaces or numbers in it so this was obviously going to be a problem. Next I treid changing my python code in app.py, if you
+navigate to the suggested app.route you will see that i have created a list and iterated through that list and made my own custom game id. I then replaced the current game title with my new unique 
+ID that I have just made and made it so their is no white space and finally I got the collapse feature working exactly how I wanted it to.
+
 
 Once I had all the bugs for the suggested page figured out I could start to test it. I tested all the buttons on the page worked properly and that the correct buttons redirected you to the correct 
 page the user was trying to access. I tested that the page was fully responsive and that it looked good on smaller devices. I checked that the delete button worked as it was meant to and it did.
@@ -150,3 +153,29 @@ Also I checked that when the user was happy with the editing that they had done 
 page with the edited version of their game. 
 
 # Deployment
+
+To create this webpage I used Gitpod and online IDE and downloaded Flask to be able to access the framework I needed. I then initilised a new git repository by downloading the template provied by 
+code institute. This allowed me to have all the neccessary things in place when starting a new project in gitpod. You can find my github repository here 
+[https://github.com/ChrisRiley3/Third-Milestone]. I was then all set up to start pushing completed code to my github repository. as i worked though the project I made plenty of commits and 
+named them accordingly so if I ever needed to go back a few steps I could do so easily. Once I was happy with the webpage I could then make the site live by using Heroku. The finished site 
+can be found at [].
+
+# Credit
+
+### Content 
+
+The bootstrap Theme I used to create the site can be found at: [https://startbootstrap.com/themes/business-casual/]. I also added In some extra code from bootstrap itself. The dropdown menu used 
+in the navigation bar can be found at [https://getbootstrap.com/docs/4.5/components/navbar/], also the collapsable item I used in my suggested games page can be found at 
+[https://getbootstrap.com/docs/4.5/components/collapse/]. The text supplied In all the consoles pages is from [https://www.wikipedia.org/] I took ether the first paragraph when you first
+open the game on wiki and sometimes the opening paragraph from the gameplay section of the game. 
+
+I downloaded and used the flask framework and accessed data from my MongoDB
+
+### Media 
+
+All the photos that were used when creating this webpage were took from [https://www.google.co.uk/imghp]
+
+### Acknowledgements
+
+The inspiration for this project came to me one day when I was really struggling to find game I might like when I bought my own nintendo. I wanted to create something that would be a hub for gamers 
+like myself who are always wanting to find and play new games. 
