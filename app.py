@@ -51,8 +51,12 @@ def pc():
 # This will go through my mongodb and find the suggested data then display it on the suggested.html page
 @app.route('/suggested')
 def suggested():
+    vals = list(mongo.db.suggested.find())
+    for v in vals:
+        v['html_game_id'] = v['game_title'].replace(" ", "")
+    print(update_game)
     return render_template('suggested.html',
-                           suggested=mongo.db.suggested.find())
+                           suggested=vals)
 
 
 # This will go through my mongodb and find the genre data then display it on the add_game.html page
@@ -66,10 +70,7 @@ def add_game():
 @app.route('/insert_game', methods=['POST'])
 def insert_game():
     suggested = mongo.db.suggested
-    select = request.form.get('genre_select')
-    val = request.form.to_dict()
-    val['genre'] = select
-    suggested.insert_one(val)
+    suggested.insert_one(request.form.to_dict())
     return redirect(url_for('suggested'))
 
 
@@ -78,6 +79,7 @@ def insert_game():
 def edit_game(game_id):
     the_game = mongo.db.suggested.find_one({"_id": ObjectId(game_id)})
     all_genres = mongo.db.genre.find()
+    print(edit_game)
     return render_template('edit_game.html', game=the_game,
                            genre=all_genres)
 
@@ -88,6 +90,7 @@ def update_game(game_id):
     suggested = mongo.db.suggested
     suggested.update({'_id': ObjectId(game_id)},
                      {
+                     'game_genre': request.form.get('game_genre'),
                      'first_name': request.form.get('first_name'),
                      'last_name': request.form.get('last_name'),
                      'game_title': request.form.get('game_title'),
