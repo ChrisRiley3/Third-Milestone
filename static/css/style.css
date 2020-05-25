@@ -1,6 +1,6 @@
 /* Styling for the body */
 body {
-  font-family: Lora;
+  font-family: Raleway;
   background-image: url(../img/bgimg.jpg);
   background-attachment: fixed;
   background-position: center;
@@ -40,4 +40,3 @@ body {
     font-weight: 100;
   }
 }
-
