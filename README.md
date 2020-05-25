@@ -1,5 +1,7 @@
 # Gamer Gram - Third Milestone Project
 
+Gamer Gram can be accesses at [https://gamer-gram.herokuapp.com/]
+
 Hello and welcome to my Third Milestone project, Gamer Gram is not just any only gaming site it is a hub, a place for every gamer out there who has had the same stuggle as me when it comes
 to finding new games to play. When visiting the site you will find all sorts of informatiomn about excluisve only titles, however the best bit is yet to come. Why not navigate over to the
 suggested games page and interact with other users and locate games they have recommended them sleves. If you feel like you have played a game recently that you just have to get out there
@@ -157,8 +159,10 @@ page with the edited version of their game.
 To create this webpage I used Gitpod and online IDE and downloaded Flask to be able to access the framework I needed. I then initilised a new git repository by downloading the template provied by 
 code institute. This allowed me to have all the neccessary things in place when starting a new project in gitpod. You can find my github repository here 
 [https://github.com/ChrisRiley3/Third-Milestone]. I was then all set up to start pushing completed code to my github repository. as i worked though the project I made plenty of commits and 
-named them accordingly so if I ever needed to go back a few steps I could do so easily. Once I was happy with the webpage I could then make the site live by using Heroku. The finished site 
-can be found at [].
+named them accordingly so if I ever needed to go back a few steps I could do so easily. Once I was happy with the webpage I could then make the site live by using Heroku. To do this i needed to run 
+the command heroku login -i, then log into my heroku app. Heroku gives you directions on what to enter into your command line so you can link your app to you project once I had done this
+the site was pushed to heroku by using the command git push heroku master however before doing this I made sure that my debug was set to False. The finished site can be found at 
+[https://gamer-gram.herokuapp.com/].
 
 # Credit
 
