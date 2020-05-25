@@ -99,3 +99,54 @@ competitions being organised which yet again will cause more user interaction.
 * MongoDB
 * Heroku
 * Flask
+
+# Testing
+
+When it came to test my code i used w3c validator, they offer a free service where you can input your code and they will tell you any adjustment you need to make to it. for my html i used 
+[https://validator.w3.org/], and to validate my css i used [https://jigsaw.w3.org/css-validator/] and for python i used [http://pep8online.com/checkresult]. When you arrive at the first two 
+sites all you have to do is navigate over to the "by direct input" section and copy and paste your code in the box provided you will then go ahead and click check, this will check the code that 
+you have entered and come back with any errors and adjustments you may need to make However beacuse i am using Flask and inhereting tempates the HTML5 validator doesn't take this into consideration 
+so although it shows some errors they are all related to me using Flask so the code itself is fine. When using the python validator all you have to do is copy and paste your python code in the 
+window that states place your code here once you click check code you will see all it states is my commenting lines are to long however the code itself is good.
+
+Every page on Gamer Gram has been tested over and over again to make sure when it is finally deployed it is suitable to be a fully functioning website. Starting off with the navigation bar I made 
+sure that it is fully responsive on every page so no matter what device the user might be using they can access the full potential of the site. When the user is navigating round the website using 
+a smaller device, I have made sure that the hamburger menu works properly and made sure that all the links work and direct you to the correct page when clicked using the hamburger menu. When 
+operating the website in a normal window I have also checked that all the links work correctly and I have tested the CSS I have applied to the linked when hovered over works correctly.
+
+When testing the home page, I tested that it was fully responsive, so it looks good on every sized screen. I checked that the button works appropriately on the home screen so it redirects you to 
+the suggested games page when clicked.
+
+Testing the consoles page the first thing I did was made sure that the consoles dropdown in the navigation bar works appropriately so when clicked it drop downs the different console’s the user 
+can choose from that they are wanting to know more information about. Once I was happy that this worked and was fully responsive, I started to check every link that the dropdown supplies. I first 
+checked that the CSS was being accessed and working properly when the links are hovered over. I then clicked on every link in the console dropdown and made sure that it redirected the user to the 
+correct page that they are wishing to access. Once I was on these pages I yet again made sure that the page was fully responsive and looked good in every window size.
+
+I came into a couple of bugs when it came to testing my suggested games page. First of all i was trying to get the game genre to display but for some reason it wasnt working. This was a simple bug 
+fix. First I navigated over to my mongo database the and the solution was quite clear I was writing {{ game.game_genre }} thinking that this was what it was called in my database however it was 
+simply just spelled genre. So i altered my code to {{ game.genre }} and it started displaying correctly.
+
+This next bug took me a little while to figure out. I am using a bootstrap template to display my suggested games. Because I am iterating through my mongo database with a for loop I only need to 
+take part of the collapse template not the full thing. But because I am only using one part it also means the ID's will be the same for all of the suggested games so once one suggested game was 
+clicked and the information about the game opened up it meant that all the games that are on the page will also open up to display their information to. So it seems like the solution is simple 
+give the ID of the collapsible template something that games dont have in common. So I changed the ID to {{ game._id }}, every new game added to the database automatically is given its own unique 
+ID, so technically this should work. However it did not by doing this it broke the whole thing completly so i had to go back to step one and find out what was actually causing the collapse to work. 
+I found out that in the card-header of the template the data-target and aria-controls were causing the collapse to work but also in the div holding the card-body the ID was causing this to work. 
+So I tried changing them all to the games unique ID once more and it still did not work. I needed to try something else, finally I treid using the games description as something that was unique, 
+finally it started to work. Now only the game that has been clicked will open up displaying more inforamtion about the game.
+
+Once I had all the bugs for the suggested page figured out I could start to test it. I tested all the buttons on the page worked properly and that the correct buttons redirected you to the correct 
+page the user was trying to access. I tested that the page was fully responsive and that it looked good on smaller devices. I checked that the delete button worked as it was meant to and it did.
+
+I checked that the “Add Game” button worked correctly and when it was clicked it redirected the user to the add game page. Once on this page I checked if it was fully responsive and if the table 
+worked as it was meant to. I checked that it was accessing my database correctly by checking the genres that are on offer for the user to select. Once I was happy with what I had written in the 
+table I clicked the add game button at the bottom of the page and made sure it redirected me back to the suggested games page and that my game had now been added to the page. I tested a whole 
+load of games to make sure that any input would work for example I tested numbers and spaces in the game title and also the game description to see if the game would still be added and to see 
+if the game would still display information as it is meant to on the suggested games page. 
+
+The edit game page was also tested the same as the add game page. I checked that when the edit button was clicked that it redirected you to the edit game page. However, this time I checked that 
+what the user had previously written in the form field was still displaying in the form, so the user did not have to write the whole thing out again. I checked this page was fully responsive. 
+Also I checked that when the user was happy with the editing that they had done that when they clicked the edit game button at the bottom of the page it redirected them back to the suggested game 
+page with the edited version of their game. 
+
+# Deployment
