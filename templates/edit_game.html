@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Extends the content on base.html -->
-{% extends 'base.html'%} {% block content %}
+{% extends 'base.html' %} {% block content %}
 <!-- Page Title -->
 <h1 class="page-title">Edit Game</h1>
 <form
@@ -14,7 +14,7 @@
       ><h4><i class="fas fa-list-ul"></i> Genre</h4></label
     >
     <!-- This bit of code will loop through the different genres in my database and display them on the page, the if statemet will display what was written in the previous fields before editing-->
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select class="form-control" id="game_genre" name="game_genre">
       {% for gen in genre %} {% if gen.game_genre == game.game_genre %}
       <option value="{{ gen.game_genre }}" selected
         >{{ gen.game_genre }}</option
