@@ -21,7 +21,7 @@
     </div>
   </div>
 </section>
-<!-- for loop that will loop through my mongodb and siplay the suggested data -->
+<!-- for loop that will loop through my mongodb and diplay the suggested data -->
 {% for game in suggested %}
 <div class="accordion" id="accordionExample">
   <div class="card">
@@ -29,37 +29,38 @@
       <h4
         class="mb-0"
         data-toggle="collapse"
-        data-target="#collapseOne"
+        data-target="#{{ game.game_description }}"
         aria-expanded="true"
-        aria-controls="collapseOne"
+        aria-controls="{{ game.game_description }}"
       >
         <i class="fas fa-caret-square-down"></i>
-        Game Title: {{ game.game_title}} - Genre: {{ game.game_genre }}
+        Game Title: {{ game.game_title}}
       </h4>
       <div class="intro-button mx-auto">
         <!-- Button to Edit a task -->
         <a
-          class="btn btn-dark btn-md col-md-1"
+          class="btn btn-dark btn-sm col-md-1"
           href="{{ url_for('edit_game', game_id=game._id) }}"
           ><h6>Edit</h6></a
         >
         <!-- Button to Delete a task -->
         <a
-          class="btn btn-primary btn-md col-md-1"
+          class="btn btn-primary btn-sm col-md-1"
           href="{{ url_for('delete_game', game_id=game._id) }}"
           ><h6>Del</h6></a
         >
       </div>
     </div>
     <div
-      id="collapseOne"
+      id="{{ game.game_description }}"
       class="collapse"
       aria-labelledby="headingOne"
       data-parent="#accordionExample"
     >
       <div class="card-body">
-        <h5>Game Description:</h5>
-        {{ game.game_description }}
+        <h4>Genre: {{ game.genre }}</h4>
+        <h4>Game Description:</h4>
+        <p>{{ game.game_description }}</p>
       </div>
       <div class="card-body">
         User's name: {{ game.first_name }} {{ game.last_name }}
@@ -67,4 +68,5 @@
     </div>
   </div>
 </div>
+
 {% endfor %} {% endblock %}
