@@ -9,7 +9,7 @@
       ><h4><i class="fas fa-list-ul"></i> Genre</h4></label
     >
     <!-- This bit of code will loop through the different genres in my database and display them on the page -->
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select class="form-control" id="exampleFormControlSelect1" name="genre_select">
       {% for gen in genre %}
       <option value="{{ gen.game_genre }}">{{ gen.game_genre }}</option>
       {% endfor %}
